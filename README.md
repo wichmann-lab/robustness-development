@@ -1,5 +1,7 @@
 # Data and code from "The developmental trajectory of object recognition robustness: children are like small adults but unlike deep neural networks"
 
+![This is an image](https://github.com/lukasShuber/noisy-children/blob/main/figures/color_theme.png)
+
 This repository contains data and code from the Paper "The developmental trajectory of object recognition robustness: children are like small adults but unlike deep neural networks". In this paper we conducted a psychophysical experiment to investigate the developmental trajectory of object recognition robustness. We tested children and adults (aged 4–36) on greyscale ImageNet images and compared thei performance with various deep neural networks (DNNs). We find that object recognition robustness emerges early in develoment and that children employ adult-like strategies to recognise images. Furthermore, we find that humans need—compared to current robust DNNs—relatively little external data in order to achieve high object recognition robustness. 
 
 The methods used in this study are adapted from a series of psychophysical experiments conducted by Geirhos and colleagues ([2018](https://papers.nips.cc/paper/2018/file/0937fb5864ed06ffb59ae5f9b5ed67a9-Paper.pdf), [2019](https://arxiv.org/pdf/1811.12231.pdf)). Model evaluation and data analysis was implemented by adapting code from the [modelvshuman](https://github.com/bethgelab/model-vs-human) Python-toolbox.
