@@ -1,0 +1,1 @@
+montage airplane.png bear.png bicycle.png bird.png boat.png bottle.png car.png cat.png chair.png clock.png dog.png elephant.png keyboard.png knife.png oven.png truck.png -tile 1x16 -geometry +0+0 response_icons_vertical.png
