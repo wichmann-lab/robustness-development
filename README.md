@@ -16,7 +16,7 @@ The `code/` directory contains the code for the psychophysical experiment. We pr
 
 ## data 
 
-The `data/` directory contains the human data as well as classification data from the evaluated DNNs for all three conducted experiments (`data/eidolon/`, `data/noise/`, and `data/cue_conflict`) split by humans vs. DNNs. Each `.csv` file contains the data from a particular age group (4–6, 7–9, 10–12, 13–15, and adults) or a particular DNN. 
+The `data/` directory contains the human- as well as the DNN data for all three conducted experiments (`data/eidolon/`, `data/noise/`, and `data/cue_conflict`). Each `.csv` file contains the data from a particular age group (4–6, 7–9, 10–12, 13–15, and adults) or a particular DNN. The subdirectory `error_consistency/` contains the raw cohens-kappa for all observers and DNNs used in the error-consistency analysis (compare [Geirhos et al. 2020](https://proceedings.neurips.cc/paper/2020/hash/9f6992966d4c363ea0162a056cb45fe5-Abstract.html))
 
 Every `.csv` data file has a header with the bold categories below, here's what they stand for:
 
