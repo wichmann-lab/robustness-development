@@ -1,6 +1,10 @@
 import os
 import pandas as pd
 
+"""
+Various helper functions for data analysis
+"""
+
 
 # helper function to move up from a given path
 def dir_up(path,n): # here 'path' is your path, 'n' is number of dirs up you want to go
@@ -8,7 +12,7 @@ def dir_up(path,n): # here 'path' is your path, 'n' is number of dirs up you wan
         path = dir_up(path.rpartition("/")[0], 0) 
     return(path)
 
-# helper function to get difficulty level labels for different experiments
+# get difficulty level labels for different experiments
 def get_diff_levels (dataset_name):
 
     possible_names = ['noise', 'eidolon', 'cue_conflict']
@@ -26,9 +30,7 @@ def get_diff_levels (dataset_name):
 def get_observer_labels():
     return ['4-6','7-9','10-12','13-15','adults','vgg19','resnext','bitm','swsl','swag']
 
-
 # get raw data from psychophysical experiments as dataframe for each age group and model
-
 def get_data_as_dfs(dataset_name):
     CWD = os.getcwd()
     RAW_DATA = dir_up(CWD,1) + '/data/'
@@ -85,7 +87,6 @@ def get_df_for_delta(age_groups):
 def get_dataframe_row (df, age_group):
     return df.loc[df.age == age_group, ['minute','8_seconds', 'second', 'fixation']].values.flatten().tolist()
     
-
 def clean_df_for_errorK(df):
     df = df[df['condition'] != '10-12 vs. 10-12']
     df = df[df['condition'] != '13-15 vs. 13-15']

@@ -2,7 +2,11 @@ from dataclasses import dataclass
 import fnmatch
 from matplotlib.lines import Line2D
 
-import colors as c
+from . import colors as c
+
+"""
+Define decision makers for shape bias plots
+"""
 
 @dataclass
 class DecisionMaker:

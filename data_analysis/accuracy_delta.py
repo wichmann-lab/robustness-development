@@ -1,7 +1,7 @@
 import pandas as pd
 
-import helper as h
-import plotting as p
+from complements import helper as h
+from complements  import plotting as p
 
 def accuracy_delta (age_groups, plotname = '_accuracy_delta_plot'):
 

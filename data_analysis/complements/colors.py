@@ -1,5 +1,5 @@
 """
-Define color scheme
+Define plotting colors
 """
 
 

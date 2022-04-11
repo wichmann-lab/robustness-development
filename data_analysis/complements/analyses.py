@@ -10,6 +10,7 @@ def sixteen_class_accuracy(df):
 
 
 def confusion_matrix(df, categories):
+    """Return confusion matrix for one data frame."""
 
     df = deepcopy(df)
     c = categories
@@ -27,7 +28,6 @@ def confusion_matrix(df, categories):
 
 def get_texture_category(imagename):
     """Return texture category from imagename.
-
     e.g. 'XXX_dog10-bird2.png' -> 'bird
     '"""
     assert type(imagename) is str
@@ -43,6 +43,10 @@ def get_texture_category(imagename):
     return d
 
 def shapeB(df):
+    """Return dictionary containing fraction of
+    correct shape- and texture-responses and shape
+    bias, which is the proportion of correct shape
+    reponses out of all correct responses."""
 
     df = df.copy()
     df["correct_texture"] = df["imagename"].apply(get_texture_category)

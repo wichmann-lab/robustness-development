@@ -8,20 +8,21 @@ import seaborn as sns
 import os
 from collections import OrderedDict
 from matplotlib.ticker import FormatStrFormatter
-import colors as c
-import helper as h
-import analyses as a
+from . import colors as c
+from . import helper as h
+from . import analyses as a
 
-import decision_makers as dm
+from . import decision_makers as dm
 
 def accuracy_plot(datasetname, path,
                     dataA, dataB, dataC, dataD, dataE, dataF, dataG, dataH, dataI, dataJ,
                     xlabel,
                     axis, yLocator, xLocator,
                     positionsData, positionsChance, plot_legend = False):
-                    
+    
+    # figure set up
     plt.rcParams['font.size'] = '16'
-    # plt.rcParams["font.family"] = "serif"
+    # plt.rcParams["font.family"] = "serif" # uncomment for serif font
 
     fig = plt.figure(figsize=(7,6))
     axes = plt.subplot(1,1,1)
@@ -34,7 +35,7 @@ def accuracy_plot(datasetname, path,
     axes.spines['top'].set_visible(False)
     axes.spines['right'].set_visible(False)
 
-
+    # plot data
     plt.plot(positionsChance, [.0625,.0625], linestyle=":",linewidth=1, color="k", label="Chance performance")
     plt.plot(positionsData, dataA, 'o', linestyle="-", linewidth=1.5, markersize=8, color=c.age1, label="4-6 year-olds")
     plt.plot(positionsData, dataB, 'o', linestyle="-", linewidth=1.5, markersize=8, color=c.age2, label="7-9 year-olds")
@@ -47,7 +48,7 @@ def accuracy_plot(datasetname, path,
     plt.plot(positionsData, dataI, 'p', linestyle="-", linewidth=1.5, markersize=9, color=c.swsl, label="SWSL (>100M)")
     plt.plot(positionsData, dataJ, 'h', linestyle="-", linewidth=1.5, markersize=9, color=c.swag, label="SWAG (>1,000M)")
 
-
+    # adapt plot for different experiments
     plt.xlabel(xlabel)
     if datasetname == "cue_conflict":
         plt.xticks([0, 1], ['Original', 'Cue-conflict'])
@@ -56,7 +57,7 @@ def accuracy_plot(datasetname, path,
     elif datasetname == "eidolon":
         plt.xticks(positionsData, ['0', '2', '3', '4'])
     
-
+    # configure details
     plt.ylabel("Classification accuracy")
     plt.tight_layout()
     sns.despine(trim=True)
@@ -152,8 +153,6 @@ def accuracy_plot_normalised(datasetname, path, dataA, dataB, dataC, dataD, data
 def accuray_delta_plot (results, plotpath):
     plt.rcParams['font.size'] = '15'    
     axis = [0,0,-0.7,0]
-    xLocator = 0.1
-    yLocator = 0.1
 
     fig = plt.figure(figsize=(7,6))
     axes = plt.subplot(1,1,1)
@@ -221,9 +220,11 @@ def plot_confusion_matrix_single(data, plotname,
 
 def input_vs_robustness_plot(plotname, df_humans, df_models, type = 'sample_size'):
 
+    # set colors and marker types
     palette = [c.vgg19, c.resnext, c.bitm, c.swsl, c.swag]
     markers = ["d", "d", "d", "d"]
 
+    # set up legend
     legend_elements = [Line2D([0], [0], marker="d",lw = 0, color=c.age1, label='4-6 year-olds',
                             markersize=8),
                     Line2D([0], [0], marker="d",lw = 0, color=c.age2, label='7-9 year-olds',
@@ -241,6 +242,7 @@ def input_vs_robustness_plot(plotname, df_humans, df_models, type = 'sample_size
                         Line2D([0], [0], color='grey',linestyle= "-", lw=1.5, label='single fixation')]
 
 
+    # set up figure
     plt.rcParams['font.size'] = '16'
 
     axis = [10**5.97,10**10, -0.01, 0.75]
@@ -253,6 +255,7 @@ def input_vs_robustness_plot(plotname, df_humans, df_models, type = 'sample_size
     axes.spines['top'].set_visible(False)
     axes.spines['right'].set_visible(False)
 
+    # plot models and the corresponding model names
     if type == 'sample_size':
         sns.scatterplot(
             data=df_models, x='samplesize', y='robustness', hue='model', size='parameters',sizes=(200, 2000), palette = palette)
@@ -274,6 +277,7 @@ def input_vs_robustness_plot(plotname, df_humans, df_models, type = 'sample_size
         plt.annotate("SWAG\n(645M param.)", (10**9.72, .68), textcoords="offset points", xytext=(0,-16), size=10)
         linewidths = [2.5,0.5]
 
+    # plot human data for all four estimates
     xdata_46 = h.get_dataframe_row(df_humans,"4-6")
     ydata_46 = [.434,.434,.434,.434]
     xdata_79 = h.get_dataframe_row(df_humans,"7-9")
@@ -305,6 +309,7 @@ def input_vs_robustness_plot(plotname, df_humans, df_models, type = 'sample_size
     for xp, yp, m in zip(xdata_adults, ydata_adults, markers):
         plt.plot(xp, yp, marker=m, linestyle="-", linewidth=1.5, markersize=8, color=c.age5)
 
+    # plot details
     plt.legend([],[], frameon=False)
     plt.xscale("log")
     sns.despine(trim=True)
@@ -324,12 +329,10 @@ def errorK_multi_boxplot(dfs, dataset, save_path):
 
     dat = []
 
+    # create a column for the desired ordering in the final plot
     for i in dfs: 
-
         i = i.reset_index(drop=True)
-
         i['order'] = ''
-
         for s, row in i.iterrows():
 
             if row['condition'] == "Adults vs. DNNs":
@@ -357,6 +360,7 @@ def errorK_multi_boxplot(dfs, dataset, save_path):
         i = i.sort_values(by=['order'], ascending=False)
         dat.append(i)
 
+    # plot set up for different experiments
     if dataset =="eidolon":
 
         f, ax = plt.subplots(1,4, figsize=(16,6))
@@ -386,6 +390,7 @@ def errorK_multi_boxplot(dfs, dataset, save_path):
 
         plot_titles = ["Original","Cue-conflict"]
 
+    # plot set up
     flierprops = dict(marker='o', markersize=0)
     custom_xlim = (-.35, 1.1)
 
@@ -400,6 +405,7 @@ def errorK_multi_boxplot(dfs, dataset, save_path):
         b = a[1]
         b.set_linewidth(2) 
 
+    # horizontal bar plots and scatter plots
     count = 0
     for a,d in zip (ax, dat):
         sns.boxplot(x="cohens-kappa", y="condition", data=d, orient='h', showmeans = True,meanprops={"marker": "|",
@@ -411,6 +417,7 @@ def errorK_multi_boxplot(dfs, dataset, save_path):
                     size=3.6, palette=c.palette2, linewidth=1, ax=a)
         count += 1
 
+    # adapt labels for different experiments
     if dataset =="eidolon":
         y[0].set(ylabel = "Eidolon")
     elif dataset == "noise":
@@ -418,26 +425,15 @@ def errorK_multi_boxplot(dfs, dataset, save_path):
     elif dataset == "cueconflict":
         y[0].set(ylabel = "Cue-conflict")
 
+    # plot details
     l = y[0].get_ylabel()
     y[0].set_ylabel(l, fontsize=20)
-
-    y[0].tick_params(
-                axis='y',          # changes apply to the y-axis
-                which='both',      # both major and minor ticks are affected
-                left=False,      # ticks along the bottom edge are off
-                top=False,         # ticks along the top edge are off
-                labelleft=True) # labels along the bottom edge are off
-
+    y[0].tick_params(axis='y',which='both', left=False, top=False, labelleft=True)
     y[0].plot([-.8, 1], [3.5, 3.5], lw=1, linestyle = ':', color='gray', clip_on=False)
     y[0].plot([-.8, 1], [6.5, 6.5], lw=1, linestyle = ':', color='gray', clip_on=False)
 
     for x in x:
-        x.tick_params(
-            axis='y',         
-            which='both',      
-            left=False,      
-            top=False,         
-            labelleft=False) 
+        x.tick_params(axis='y', which='both', left=False, top=False, labelleft=False) 
         x.plot([-.6, 1], [3.5, 3.5], lw=1,linestyle = ':', color='gray', clip_on=False)
         x.plot([-.6, 1], [6.5, 6.5], lw=1, linestyle = ':', color='gray', clip_on=False)
 
@@ -461,7 +457,7 @@ def errorK_multi_boxplot(dfs, dataset, save_path):
 
 def plot_shapebias(path, df,
                    order_by='humans'):
-    ICONS_DIR = '/home/rebushulk/Documents/GitHub/JoV/data_analysis/icons/'
+    ICONS_DIR = os.getcwd() + '/icons/'
     fontsize = 25
     ticklength = 10
     markersize = 250

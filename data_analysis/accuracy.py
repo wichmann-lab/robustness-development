@@ -1,8 +1,8 @@
 import os
 import pandas as pd
-import helper as h
-import analyses as a
-import plotting as p
+from complements import helper as h
+from complements import analyses as a
+from complements  import plotting as p
 
 
 def accuracy (dataset_names, plotname = '_accuracy_plot'):

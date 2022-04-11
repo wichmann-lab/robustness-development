@@ -1,6 +1,6 @@
 import pandas as pd
-import plotting as p
-import helper as h
+from complements import plotting as p
+from complements import helper as h
 
 
 # Create dictonary with model details. Information regarding
