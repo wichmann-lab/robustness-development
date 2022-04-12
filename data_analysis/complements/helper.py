@@ -104,13 +104,13 @@ def clean_df_for_errorK(df):
 def get_data_for_errorK(dataset_name):
     CWD = os.getcwd()
     RAW_DATA = dir_up(CWD,1) + '/data/error_consistency/'
-    df1 = pd.read_csv(RAW_DATA + dataset_name + '0')
+    df1 = pd.read_csv(RAW_DATA + dataset_name + '0' + '.csv')
     df1 = clean_df_for_errorK(df1)
-    df2 = pd.read_csv(RAW_DATA + dataset_name + '1')
+    df2 = pd.read_csv(RAW_DATA + dataset_name + '1' + '.csv')
     df2 = clean_df_for_errorK(df2)
-    df3 = pd.read_csv(RAW_DATA + dataset_name + '2')
+    df3 = pd.read_csv(RAW_DATA + dataset_name + '2' + '.csv')
     df3 = clean_df_for_errorK(df3)
-    df4 = pd.read_csv(RAW_DATA + dataset_name + '3')
+    df4 = pd.read_csv(RAW_DATA + dataset_name + '3' + '.csv')
     df4 = clean_df_for_errorK(df4)
 
     dfs = [df1, df2, df3, df4]
