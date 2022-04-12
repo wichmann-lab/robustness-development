@@ -43,7 +43,8 @@ def accuracy (dataset_names, plotname = '_accuracy_plot'):
 
         # print and save results
         print(acc_summary)
-        acc_summary.to_csv(("/home/rebushulk/Documents/GitHub/JoV/data_analysis/raw_accuracy/" + dataset), index=False)
+        print("done")
+        acc_summary.to_csv(("/home/rebushulk/Documents/GitHub/JoV/data_analysis/raw_accuracy/" + dataset + ".csv"), index=False)
         
         #prepare data for plotting
         data4_6 = (acc_summary.loc[acc_summary['observer'] == '4_6'])['accuracy'].tolist()

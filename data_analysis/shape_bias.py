@@ -22,8 +22,8 @@ def shape_bias(dataset):
     df = df.reset_index(drop=True)
 
     # analysis and plotting
-    p.plot_shapebias(PLOT_PATH + "shapeB/shape_bias",df, order_by='humans')
-    p.plot_shape_bias_boxplot(PLOT_PATH + "shapeB/box_plot_shape_bias",df)
+    p.plot_shapebias(PLOT_PATH + "shape_bias/shape_bias",df, order_by='humans')
+    p.plot_shape_bias_boxplot(PLOT_PATH + "shape_bias/box_plot_shape_bias",df)
 
 if __name__ == "__main__":
 

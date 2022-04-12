@@ -31,7 +31,7 @@ def confusion_matrices(datasets):
                 result = a.confusion_matrix(dfLevel, categories)
                 result = result.round(2)
                 lst.append(result)
-            p.plot_confusion_matrix_single(lst, (PLOT_PATH + 'confusionM/' + dataset + '_' + observer_labels[countdfs]))
+            p.plot_confusion_matrix_single(lst, (PLOT_PATH + 'confusion_matrices/' + dataset + '_' + observer_labels[countdfs]))
             countdfs +=1
 
 if __name__ == "__main__":

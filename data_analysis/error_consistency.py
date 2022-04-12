@@ -11,7 +11,7 @@ def errorK (datasetnames, plot_path):
         dfs = h.get_data_for_errorK(dataset)
 
         #plotting
-        p.errorK_multi_boxplot(dfs, dataset, plot_path + 'errorK/')
+        p.errorK_multi_boxplot(dfs, dataset, plot_path + 'error_consistency/')
 
 if __name__ == "__main__":
 
