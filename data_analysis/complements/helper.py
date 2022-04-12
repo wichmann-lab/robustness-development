@@ -34,16 +34,16 @@ def get_observer_labels():
 def get_data_as_dfs(dataset_name):
     CWD = os.getcwd()
     RAW_DATA = dir_up(CWD,1) + '/data/'
-    df1 = pd.read_csv(RAW_DATA + dataset_name + '/humans/4_6')
-    df2 = pd.read_csv(RAW_DATA + dataset_name + '/humans/7_9')
-    df3 = pd.read_csv(RAW_DATA + dataset_name + '/humans/10_12')
-    df4 = pd.read_csv(RAW_DATA + dataset_name + '/humans/13_15')
-    df5 = pd.read_csv(RAW_DATA + dataset_name + '/humans/adults')
-    dfDnn1 = pd.read_csv(RAW_DATA + dataset_name + '/models/vgg19')
-    dfDnn2 = pd.read_csv(RAW_DATA + dataset_name + '/models/resnext')
-    dfDnn3 = pd.read_csv(RAW_DATA + dataset_name + '/models/bitm')
-    dfDnn4 = pd.read_csv(RAW_DATA + dataset_name + '/models/swsl')
-    dfDnn5 = pd.read_csv(RAW_DATA + dataset_name + '/models/swag')
+    df1 = pd.read_csv(RAW_DATA + dataset_name + '/humans/4_6.csv')
+    df2 = pd.read_csv(RAW_DATA + dataset_name + '/humans/7_9.csv')
+    df3 = pd.read_csv(RAW_DATA + dataset_name + '/humans/10_12.csv')
+    df4 = pd.read_csv(RAW_DATA + dataset_name + '/humans/13_15.csv')
+    df5 = pd.read_csv(RAW_DATA + dataset_name + '/humans/adults.csv')
+    dfDnn1 = pd.read_csv(RAW_DATA + dataset_name + '/models/vgg19.csv')
+    dfDnn2 = pd.read_csv(RAW_DATA + dataset_name + '/models/resnext.csv')
+    dfDnn3 = pd.read_csv(RAW_DATA + dataset_name + '/models/bitm.csv')
+    dfDnn4 = pd.read_csv(RAW_DATA + dataset_name + '/models/swsl.csv')
+    dfDnn5 = pd.read_csv(RAW_DATA + dataset_name + '/models/swag.csv')
 
     return [df1, df2, df3, df4, df5, dfDnn1, dfDnn2, dfDnn3, dfDnn4, dfDnn5]
 
@@ -69,10 +69,10 @@ def get_df_for_delta(age_groups):
 
     CWD = os.getcwd()
     RAW_DATA = dir_up(CWD,1) + '/data/'
-    df_noise_1 = pd.read_csv(RAW_DATA + 'noise/humans/' + age_groups[0])
-    df_noise_2 = pd.read_csv(RAW_DATA + 'noise/humans/' + age_groups[1]) 
-    df_eidolon_1 = pd.read_csv(RAW_DATA + 'eidolon/humans/' + age_groups[0])
-    df_eidolon_2 = pd.read_csv(RAW_DATA + 'eidolon/humans/' + age_groups[1]) 
+    df_noise_1 = pd.read_csv(RAW_DATA + 'noise/humans/' + age_groups[0] + '.csv')
+    df_noise_2 = pd.read_csv(RAW_DATA + 'noise/humans/' + age_groups[1] + '.csv') 
+    df_eidolon_1 = pd.read_csv(RAW_DATA + 'eidolon/humans/' + age_groups[0] + '.csv')
+    df_eidolon_2 = pd.read_csv(RAW_DATA + 'eidolon/humans/' + age_groups[1] + '.csv') 
 
     df_age_1 = [df_noise_1, df_eidolon_1]
     df_age_1 = pd.concat(df_age_1)
