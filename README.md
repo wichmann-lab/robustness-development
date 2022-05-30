@@ -1,4 +1,4 @@
-# Data and code from "The developmental trajectory of object recognition robustness: children are like small adults but unlike big deep neural networks
+# Data and code from "The developmental trajectory of object recognition robustness: children are like small adults but unlike big deep neural networks"
 
 ![This is an image](https://github.com/wichmann-lab/robustness-development/blob/main/figures/color_theme.png)
 
