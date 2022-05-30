@@ -2,7 +2,7 @@
 
 ![This is an image](https://github.com/wichmann-lab/robustness-development/blob/main/figures/color_theme.png)
 
-This repository contains data and code from the Paper "The developmental trajectory of object recognition robustness: children are like small adults but unlike deep neural networks". In this paper we conducted a series of psychophysical experiments to investigate the developmental trajectory of object recognition robustness. We tested children and adults (aged 4–36) on distorted greyscale ImageNet images and compared their performance with various deep neural networks (DNNs). We find that object recognition robustness emerges early in develoment and that children employ adult-like strategies to recognise images. Furthermore, we find that humans—compared to current robust DNNs— need relatively little external data in order to achieve high object recognition robustness. 
+This repository contains data and code from the Paper ["The developmental trajectory of object recognition robustness: children are like small adults but unlike deep neural networks"](https://arxiv.org/pdf/2205.10144.pdf). In this paper we conducted a series of psychophysical experiments to investigate the developmental trajectory of object recognition robustness. We tested children and adults (aged 4–36) on distorted greyscale ImageNet images and compared their performance with various deep neural networks (DNNs). We find that object recognition robustness emerges early in develoment and that children employ adult-like strategies to recognise images. Furthermore, we find that humans—compared to current robust DNNs— need relatively little external data in order to achieve high object recognition robustness. 
 
 The methods used in this study are adapted from a series of psychophysical experiments conducted by Geirhos and colleagues ([2018](https://papers.nips.cc/paper/2018/file/0937fb5864ed06ffb59ae5f9b5ed67a9-Paper.pdf), [2019](https://arxiv.org/pdf/1811.12231.pdf)). Model evaluation and data analysis was implemented by adapting code from the [modelvshuman](https://github.com/bethgelab/model-vs-human) Python-toolbox.
 
@@ -49,10 +49,10 @@ The `figures/` directory contains all plots reported in the results section of t
 
 ## citation
 
-@article{huber2022developmental,
-  title={The developmental trajectory of object recognition robustness: children are like small adults but unlike big deep neural networks},
-  author={Huber, Lukas S and Geirhos, Robert and Wichmann, Felix A},
-  journal={arXiv preprint arXiv:2205.10144},
-  year={2022}
+@article{huber2022developmental,<br/>
+  title={The developmental trajectory of object recognition robustness: children are like small adults but unlike big deep neural networks},<br/>
+  author={Huber, Lukas S and Geirhos, Robert and Wichmann, Felix A},<br/>
+  journal={arXiv preprint arXiv:2205.10144},<br/>
+  year={2022}<br/>
 }
 
