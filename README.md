@@ -1,4 +1,4 @@
-# Data and code from "The developmental trajectory of object recognition robustness: children are like small adults but unlike big deep neural networks"
+# Data and code from "The developmental trajectory of object recognition robustness: children are like small adults but unlike big deep neural networks
 
 ![This is an image](https://github.com/wichmann-lab/robustness-development/blob/main/figures/color_theme.png)
 
@@ -46,3 +46,13 @@ Each script in the `data_analysis/` directory corresponds to an analysis reporte
 ## figures
 
 The `figures/` directory contains all plots reported in the results section of the paper and can be generated using the code from the `data_analysis/` directory.
+
+## citation
+
+@article{huber2022developmental,
+  title={The developmental trajectory of object recognition robustness: children are like small adults but unlike big deep neural networks},
+  author={Huber, Lukas S and Geirhos, Robert and Wichmann, Felix A},
+  journal={arXiv preprint arXiv:2205.10144},
+  year={2022}
+}
+
